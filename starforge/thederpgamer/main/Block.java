@@ -35,7 +35,7 @@ public class Block {
   private static Element category;
   private static String displayName;
   private static ArrayList<Integer> textureIDs = new ArrayList<Integer>();
-  private static ArrayList<Block> recipie = new ArrayList<Block>();
+  private static ArrayList<Block> recipe = new ArrayList<Block>();
   private static int HP;
   private static int armor;
   private static int price;
@@ -56,6 +56,14 @@ public class Block {
   private static int volume;
   private static int hitpoints;
   private static boolean placeable;
+  private static boolean inRecipe;
+  private static boolean hasAcivationTexture;
+  private static boolean activatable;
+  private static boolean physical;
+  private static boolean buildmode;
+  private static boolean lightSource;
+  private static ArrayList<Double> lightColors = new ArrayList<Double>();
+  private static boolean door;
 
   public static createCategory(String categoryName) {
     Element category = document.createElement("" + categoryName);
@@ -86,9 +94,14 @@ public class Block {
     }
   }
 
-  public static setRecipie(ArrayList<Block> blocks) {
-    for(x = 0, x <= blocks.size(), x++) {
-      recipie.add(x);
+  public static setRecipe(ArrayList<Block> blocks) {
+    if(blocks = null) {
+      boolean inRecipe = false;
+    } else {
+      for(x = 0, x <= blocks.size(), x++) {
+        boolean inRecipe = true;
+        recipe.add(x);
+      }
     }
   }
 
@@ -162,6 +175,35 @@ public class Block {
     boolean placeable = bool;
   }
 
+  public static setActivateable(boolean bool) {
+    boolean activatable = bool;
+    boolean hasAcivationTexture = bool;
+  }
+
+  public static setPhysical(boolean bool) {
+    boolean physical = bool;
+  }
+
+  public static setOnlyVisibleBuildmode(boolean bool) {
+    boolean buildmode = bool;
+  }
+
+  public static setEmitsLight(boolean bool) {
+    boolean lightSource = bool;
+  }
+
+  public static setLightSourceColor(ArrayList<Double> colors) {
+    if(colors.size == 3) {
+      for(x = 0, x <= ids.size(), x++) {
+        lightColors.add(x);
+      }
+    }
+  }
+
+  public static setDoor(boolean bool) {
+    boolean door = bool;
+  }
+
   public static saveConfigs() {
     TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
@@ -185,9 +227,9 @@ public class Block {
     block.setAttribute("type", "" + blockID);
     category.appendChild(blockElement);
 
-    //Recipie
-    Element recipieElement = document.createElement("Consistence");
-    block.appendChild(recipieElement);
+    //Recipe
+    Element recipeElement = document.createElement("Consistence");
+    block.appendChild(recipeElement);
 
     //Armor Value
     Element armorElement = document.createElement("ArmorValue");
@@ -373,8 +415,14 @@ public class Block {
     Element placeableText = document.createTextNode("" + placeable);
     placeableElement.appendChild(placeableText);
 
-    //In Recipie
+    //In Recipe
     //If it's actually craftable or not
+    Element inRecipeElement = document.createElement("InRecipe");
+    block.appendChild(inRecipeElement);
+    Element inRecipeText = document.createTextNode("" + inRecipe);
+    inRecipeElement.appendChild(inRecipeText);
+
+
 
     //Individual Sides
     //Ask Schema what this means
@@ -382,33 +430,51 @@ public class Block {
     //Side Textures Point to Oreintation
     //Ask Schema what this means
 
+    //Can Activate
+    //If the block can be activated like a logic block
+    Element activationElement = document.createElement("CanActivate");
+    block.appendChild(activationElement);
+    Element activationTextureText = document.createTextNode("" + activatable);
+    activationElement.appendChild(activationText);
+
     //Has Acivation Texture
-    //If the block changes texture on activation, for logic blocks
-
-    //Main Combination Controller
-    //Has to do with masters and slaves, ask Schema how to set specific blocks as slaves to a master
-
-    //Support Combination Controller
-    //Has to do with masters and slaves, ask Schema how to set specific blocks as slaves to a master
-
-    //Effect Combination Controller
-    //Has to do with masters and slaves, ask Schema how to set specific blocks as slaves to a master
+    //If the block changes texture on activation like a logic block
+    Element activationTextureElement = document.createElement("HasAcivationTexture");
+    block.appendChild(activationTextureElement);
+    Element activationTextureText = document.createTextNode("" + hasAcivationTexture);
+    activationTextureElement.appendChild(activationTextureText);
 
     //Physical
     //If the block can be passed through by other entities
     //(true = not passable)
+    Element physicalElement = document.createElement("Physical");
+    block.appendChild(physicalElement);
+    Element physicalText = document.createTextNode("" + physical);
+    physicalElement.appendChild(physicalText);
 
     //Block Style
     //Ask Schema what this means
 
     //Light Source
     //If the block emits light
+    Element lightElement = document.createElement("LightSource");
+    block.appendChild(lightElement);
+    Element lightText = document.createTextNode("" + lightSource);
+    lightElement.appendChild(lightText);
 
     //Light Source Color
     //The color of the block's light source
+    Element lightColorElement = document.createElement("LightSourceColor");
+    block.appendChild(lightElement);
+    Element lightColorText = document.createTextNode("" + lightColor[0] + "," + lightColor[1] + "," + lightColor[2]);
+    lightColorElement.appendChild(lightColorText);
 
     //Door
     //If the block is a door
+    Element doorElement = document.createElement("Door");
+    block.appendChild(doorElement);
+    Element doorText = document.createTextNode("" + door);
+    doorElement.appendChild(doorText);
 
     //Sensor Input
     //If the block can output to a sensor
@@ -426,6 +492,10 @@ public class Block {
 
     //Only Drawn in Build Mode
     //For blocks that are only visible in build mode, like area blocks and rail launchers
+    Element buildmodeElement = document.createElement("OnlyDrawnInBuildMode");
+    block.appendChild(buildmodeElement);
+    Element buildmodeText = document.createTextNode("" + buildmode);
+    buildmodeElement.appendChild(buildmodeText);
 
     //LODS Shape from Far
     //For LOD blocks, changes the block to be a certain shape when out of LOD range
