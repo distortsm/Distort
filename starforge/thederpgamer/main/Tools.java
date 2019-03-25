@@ -1,6 +1,6 @@
 package starforge.thederpgamer.main;
 
-import thederpgamer.main.Block;
+import starforge.thederpgamer.main.Block;
 
 public class Tools {
   public static getDistance(Block block1, Block block2) {
