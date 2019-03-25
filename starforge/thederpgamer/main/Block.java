@@ -52,6 +52,7 @@ public class Block {
   private static int mass;
   private static int volume;
   private static int hitpoints;
+  private static boolean placeable;
 
   public static createCategory(String categoryName) {
     Element category = document.createElement("" + categoryName);
@@ -152,6 +153,10 @@ public class Block {
 
   public static setHitpoints(int HP) {
     int hitpoints = HP;
+  }
+
+  public static setPlaceable(boolean bool) {
+    boolean placeable = bool;
   }
 
   public static registerConfigs(Block block) {
@@ -353,6 +358,11 @@ public class Block {
     //Placeable
     //If the player is allowed to physically place the block
     //For items and tools change this to false
+    Element placeableElement = document.createElement("Placeable");
+    block.appendChild(placeableElement);
+    Element placeableText = document.createTextNode("" + placeable);
+    placeableElement.appendChild(placeableText);
+
 
     //In Recipie
     //If it's actually craftable or not
