@@ -265,7 +265,7 @@ public class Block {
     Element descText = document.createTextNode("" + description);
     descriptionElement.appendChild(descriptionText);
 
-    //BlockResourceType
+    //Block Resource Type
     //Ask Schema what this means
 
     //Number Produced in Factory
