@@ -1,6 +1,6 @@
-package starworks.thederpgamer.main;
+package net.distortsm.api.main;
 
-import starforge.thederpgamer.main.Block;
+import net.distortsm.api.Block;
 
 public class Tools {
   public static getDistance(Block block1, Block block2) {

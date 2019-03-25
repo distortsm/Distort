@@ -1,4 +1,4 @@
-package starworks.thederpgamer.main;
+package net.distortsm.api.main;
 
 import java.util.ArrayList;
 import java.io.File;
@@ -17,8 +17,7 @@ import org.w3c.dom.Element;
 public class Block {
 
   public static final String starmadeDirectory = "../";
-  public static final String modDirectory = starmadeDirectory + "/mods";
-  public static final String blockXMLFilePath = starmadeDirectory + "/customBlockConfig/BlockConfigImport.xml";
+  public static final String blockXMLFilePath = starmadeDirectory + "customBlockConfig/BlockConfigImport.xml";
 
   public static DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
   public static DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();

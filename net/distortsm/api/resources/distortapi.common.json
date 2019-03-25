@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "starworks.thederpgamer.mixin",
+  "package": "net.distortsm.api.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
   ],
