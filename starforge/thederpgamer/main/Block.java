@@ -51,6 +51,7 @@ public class Block {
   private static boolean enterable;
   private static int mass;
   private static int volume;
+  private static int hitpoints;
 
   public static createCategory(String categoryName) {
     Element category = document.createElement("" + categoryName);
@@ -147,6 +148,10 @@ public class Block {
 
   public static setVolume(int vol) {
     int volume = vol;
+  }
+
+  public static setHitpoints(int HP) {
+    int hitpoints = HP;
   }
 
   public static registerConfigs(Block block) {
@@ -340,6 +345,10 @@ public class Block {
 
     //Hitpoints
     //How much HP the block has, seperate from armor value
+    Element hitpointsElement = document.createElement("Hitpoints");
+    block.appendChild(hitpointsElement);
+    Element hitpointsText = document.createTextNode("" + hitpoints);
+    hitpointsElement.appendChild(hitpointsText);
 
     //Placeable
     //If the player is allowed to physically place the block
