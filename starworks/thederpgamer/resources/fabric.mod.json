@@ -1,0 +1,16 @@
+{
+  "id": "starforgeapi",
+  "name": "StarForge API",
+  "description": "A versatile set of tools libraries for StarMade modders. Made by TheDerpGamer",
+  "version": "${version}",
+  "side": "universal",
+  "initializers": [
+    "starforge.thederpgamer.main.Main"
+  ],
+  "requires": {
+  },
+  "mixins": {
+    "client": "starforgeapi.client.json",
+    "common": "starforgeapi.common.json"
+  }
+}
