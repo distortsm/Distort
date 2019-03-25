@@ -1,4 +1,4 @@
-package starforge.thederpgamer.mixin;
+package starworks.thederpgamer.mixin;
 
 import org.schema.game.client.controller.GameClientController;
 import org.schema.schine.network.client.ClientController;
@@ -9,13 +9,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GameClientController.class)
-public abstract class StarForgeMixin extends ClientController {
+public abstract class StarWorksMixin extends ClientController {
 	private ExampleMixin(ClientState clientState) {
 		super(clientState);
 	}
 
 	@Inject(at = @At("HEAD"), method = "initialize()V")
 	public void init(CallbackInfo info) {
-		System.out.println("StarForge API Mixin Loaded!");
+		System.out.println("StarWorks API Mixin Loaded!");
 	}
 }

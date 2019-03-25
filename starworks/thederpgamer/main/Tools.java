@@ -1,4 +1,4 @@
-package starforge.thederpgamer.main;
+package starworks.thederpgamer.main;
 
 import starforge.thederpgamer.main.Block;
 

@@ -1,9 +1,8 @@
 {
   "required": true,
-  "package": "starforge.thederpgamer.mixin",
+  "package": "starworks.thederpgamer.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "StarForgeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

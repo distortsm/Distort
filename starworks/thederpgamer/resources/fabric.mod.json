@@ -1,16 +1,16 @@
 {
-  "id": "starforgeapi",
-  "name": "StarForge API",
-  "description": "A versatile set of tools libraries for StarMade modders. Made by TheDerpGamer",
+  "id": "starworksapi",
+  "name": "StarWorks API",
+  "description": "A versatile set of tools libraries for StarMade modders.",
   "version": "${version}",
   "side": "universal",
   "initializers": [
-    "starforge.thederpgamer.main.Main"
+    "starworks.thederpgamer.main.Main"
   ],
   "requires": {
   },
   "mixins": {
-    "client": "starforgeapi.client.json",
-    "common": "starforgeapi.common.json"
+    "client": "starworksapi.client.json",
+    "common": "starworksapi.common.json"
   }
 }

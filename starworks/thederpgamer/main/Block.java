@@ -1,4 +1,4 @@
-package starforge.thederpgamer.main;
+package starworks.thederpgamer.main;
 
 import java.util.ArrayList;
 import java.io.File;
