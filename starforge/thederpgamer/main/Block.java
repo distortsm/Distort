@@ -16,7 +16,10 @@ import org.w3c.dom.Element;
 
 public class Block {
 
-  public static final String xmlFilePath = "";
+  public static final String starmadeDirectory = "../";
+  public static final String modDirectory = starmadeDirectory + "/mods";
+  public static final String blockXMLFilePath = starmadeDirectory + "/customBlockConfig/BlockConfigImport.xml";
+
   public static DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
   public static DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
   public static Document document = documentBuilder.newDocument();
@@ -157,6 +160,13 @@ public class Block {
 
   public static setPlaceable(boolean bool) {
     boolean placeable = bool;
+  }
+
+  public static saveConfigs() {
+    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		DOMSource source = new DOMSource(doc);
+		StreamResult result = new StreamResult(new File("" + blockXMLFilePath));
   }
 
   public static registerConfigs(Block block) {
@@ -363,7 +373,6 @@ public class Block {
     Element placeableText = document.createTextNode("" + placeable);
     placeableElement.appendChild(placeableText);
 
-
     //In Recipie
     //If it's actually craftable or not
 
@@ -445,7 +454,7 @@ public class Block {
       Element controllingText = document.createTextNode("" + controlling[x]);
       controllingElementText.appendChild(controllingText);
     }
-
+    saveConfigs();
     System.out.println("Successfuly registered " + customBlocks.size() + " blocks!");
   }
 }
