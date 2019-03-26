@@ -526,4 +526,24 @@ public class Block {
     saveConfigs();
     System.out.println("Successfuly registered " + customBlocks.size() + " blocks!");
   }
+
+  public static getEntity(Block block) {
+    /** Gets the entity a block is on */
+  }
+
+  public static getx(Block block) {
+    /** Gets x coordinate of a block on an entity */
+  }
+
+  public static gety(Block block) {
+    /** Gets y coordinate of a block on an entity */
+  }
+
+  public static getz(Block block) {
+    /** Gets z coordinate of a block on an entity */
+  }
+
+  public static getLocation(Block block) {
+    /** Gets location of a block on an entity */
+  }
 }
