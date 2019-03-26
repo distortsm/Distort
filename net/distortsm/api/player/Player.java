@@ -4,6 +4,8 @@ import net.distortsm.api.server.Server;
 import net.distortsm.api.guis.ErrorBox;
 import net.distortsm.api.guis.MessageBox;
 import net.distortsm.api.entity.Entity;
+import net.distortsm.api.world.Sector;
+import net.distortsm.api.world.System;
 
 public class Player {
 
@@ -36,11 +38,13 @@ public class Player {
 
   public static getSector(Player player) {
     /** Gets a player's current sector */
+
     return sector;
   }
 
   public static getSystem(Player player) {
     /** Gets a player's current system */
+    
     return system;
   }
 
