@@ -13,6 +13,7 @@ public class Player {
   public static Player player = new Player();
   public static Sector sector = new Sector();
   public static System system = new System();
+  public static Faction faction = new Faction();
 
   private static void sendErrorBox(ErrorBox errorBox) {
     if(server.getPlayer(player) == null) {
@@ -34,6 +35,7 @@ public class Player {
 
   public static getCurrentEntity(Player player) {
     /** Gets the current entity a player is aligned/attached to */
+    
   }
 
   public static getSector(Player player) {
@@ -44,11 +46,13 @@ public class Player {
 
   public static getSystem(Player player) {
     /** Gets a player's current system */
-    
+
     return system;
   }
 
   public static getFaction(Player player) {
     /** Gets a player's current faction */
+
+    return faction;
   }
 }
