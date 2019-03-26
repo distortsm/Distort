@@ -2,19 +2,16 @@ package net.distortsm.api.player;
 
 import java.lang.Object.Vector3i;
 import org.schema.game.common.data.player.PlayerState;
-import net.distortsm.api.server.Server;
 import net.distortsm.api.guis.ErrorBox;
 import net.distortsm.api.guis.MessageBox;
 import net.distortsm.api.entity.Entity;
-import net.distortsm.api.world.Sector;
-import net.distortsm.api.world.System;
 import net.distortsm.api.player.Faction;
 
 public class Player extends PlayerState {
 
   public static Server server = new Server();
   public static Player player = new Player();
-  private static String playerName = PlayerState.getName();
+  private static String name = PlayerState.getName();
   public static Faction faction = new Faction();
   public static ArrayList<Integer> sector = new ArrayList<Integer>();
   public static ArrayList<Integer> system = new ArrayList<Integer>();
@@ -24,7 +21,7 @@ public class Player extends PlayerState {
       System.out.println(player + " isn't on server! Cannot send ErrorBox");
     } else {
       //figure out how to send errorBox to a player
-      System.out.println("Sent ErrorBox to " + player);
+      System.out.println("Sent ErrorBox to " + player.name);
     }
   }
 
@@ -33,7 +30,7 @@ public class Player extends PlayerState {
       System.out.println(player + " isn't on server! Cannot send MessageBox");
     } else {
       //figure out how to send messageBox to a player
-      System.out.println("Sent MessageBox to " + player);
+      System.out.println("Sent MessageBox to " + player.name);
     }
   }
 
