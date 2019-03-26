@@ -1,7 +1,10 @@
 package net.distortsm.api.player;
 
-public class Faction {
+import org.schema.game.common.data.player.PlayerState;
 
-  public static Faction faction = new Faction();
+public class Faction extends PlayerState {
 
+  private static Faction faction = new Faction();
+  private static String factionName = PlayerState.getFactionName();
+  private static int factionID = PlayerState.getFactionID();
 }
