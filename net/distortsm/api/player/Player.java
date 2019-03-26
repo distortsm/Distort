@@ -34,12 +34,12 @@ public class Player extends PlayerState {
     }
   }
 
-  public static getCurrentEntity(Player player) {
+  public static getCurrentEntity() {
     /** Gets the current entity a player is aligned/attached to */
 
   }
 
-  public static getSector(Player player) {
+  public static getSector() {
     /** Gets a player's current sector */
     int sectorX = PlayerState.currentSector.get(x);
     int sectorY = PlayerState.currentSector.get(y);
@@ -50,22 +50,22 @@ public class Player extends PlayerState {
     return sector;
   }
 
-  public static getSectorX(Player player) {
+  public static getSectorX() {
     int sectorX = PlayerState.currentSector.get(x);
     return sectorX;
   }
 
-  public static getSectorY(Player player) {
+  public static getSectorY() {
     int sectorY = PlayerState.currentSector.get(y);
     return sectorY;
   }
 
-  public static getSectorZ(Player player) {
+  public static getSectorZ() {
     int sectorZ = PlayerState.currentSector.get(z);
     return sectorZ;
   }
 
-  public static getSystem(Player player) {
+  public static getSystem() {
     /** Gets a player's current system */
     int systemX = PlayerState.currentSystem.get(x);
     int systemY = PlayerState.currentSystem.get(y);
@@ -76,27 +76,27 @@ public class Player extends PlayerState {
     return system;
   }
 
-  public static getSystemX(Player player) {
+  public static getSystemX() {
     int systemX = PlayerState.currentSystem.get(x);
     return systemX;
   }
 
-  public static getSystemY(Player player) {
+  public static getSystemY() {
     int systemY = PlayerState.currentSystem.get(y);
     return systemY;
   }
 
-  public static getSystemZ(Player player) {
+  public static getSystemZ() {
     int system = PlayerState.currentSystem.get(z);
     return systemZ;
   }
 
-  public static getFaction(Player player) {
-
-    return faction;
+  public static getFactionName() {
+    String factionName = faction.factionName;
+    return factionName;
   }
 
-  public static getFactionID(Faction faction) {
+  public static getFactionID() {
     int factionID = faction.factionID;
     return factionID;
   }
