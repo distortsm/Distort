@@ -1,8 +1,11 @@
 package net.distortsm.api.main;
 
-import net.distortsm.api.Block;
+import net.distortsm.api.block.Block;
+import net.distortsm.api.entity.Entity;
+import net.distortsm.api.world.Location;
 
 public class Tools {
+
   public static getDistance(Block block1, Block block2) {
     /** gets the distance between 2 blocks on an entity */
     int distx = abs(block1.getx - block2.getx);
@@ -25,8 +28,7 @@ public class Tools {
           int currentBlocky = block1.gety();
           int currentBlockz = block1.getz();
           Location currentBlockLocation = currentBlockx, currentBlocky, currentBlockz;
-          currentblock = entity.getBlockAt(currentBlockx,currentBlocky, currentBlockz);
-          if(blocks.contains(currentblock.getBlock)) {
+          if(blocks.contains(currentBlockLocation.getBlock)) {
             return true;
           }
         }
