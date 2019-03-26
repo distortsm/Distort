@@ -2,5 +2,6 @@ package net.distortsm.api.world;
 
 public class Sector {
 
-  private static get
+  public static Sector sector = new Sector();
+  public static ArrayList<Integer> sectorCoords = new ArrayList<Integer>();
 }
