@@ -14,9 +14,11 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import net.distortsm.api.main.Main;
+
 public class Block {
 
-  public static final String starmadeDirectory = "../";
+  public static final String starmadeDirectory = Main.starmadeDirectory;
   public static final String blockXMLFilePath = starmadeDirectory + "customBlockConfig/BlockConfigImport.xml";
 
   public static DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
