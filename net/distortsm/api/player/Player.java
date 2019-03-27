@@ -12,7 +12,7 @@ public class Player extends PlayerState {
   public static Server server = new Server();
   public static Player player = new Player();
   private static String name = PlayerState.getName();
-  public static Faction faction = new Faction();
+  public static Faction faction = Faction.faction;
   public static ArrayList<Integer> sector = new ArrayList<Integer>();
   public static ArrayList<Integer> system = new ArrayList<Integer>();
 
@@ -87,17 +87,11 @@ public class Player extends PlayerState {
   }
 
   public static getSystemZ() {
-    int system = PlayerState.currentSystem.get(z);
-    return systemZ;
+	  int system = PlayerState.currentSystem.get(z);
+	  return systemZ;
   }
 
-  public static getFactionName() {
-    String factionName = faction.factionName;
-    return factionName;
-  }
-
-  public static getFactionID() {
-    int factionID = faction.factionID;
-    return factionID;
+  public static getFaction() {
+	  return faction;
   }
 }
