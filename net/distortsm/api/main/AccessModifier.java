@@ -10,5 +10,9 @@ public class AccessModifier {
     playerStateCurrentSystem.setAccessible(true);
     Field playerStateName = PlayerState.class.getDeclaredField(name);
     playerStateName.setAccessible(true);
+    Field playerStateHasCreativeMode = PlayerState.class.getDeclaredField(hasCreativeMode);
+    playerStateHasCreativeMode.setAccessible(true);
+    Field playerStateUseCreativeMode = PlayerState.class.getDeclaredField(useCreativeMode);
+    playerStateUseCreativeMode.setAccessible(true);
   }
 }

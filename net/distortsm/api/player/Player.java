@@ -9,12 +9,14 @@ import net.distortsm.api.player.Faction;
 
 public class Player extends PlayerState {
 
-  public static Server server = new Server();
-  public static Player player = new Player();
+  private static Server server = new Server();
+  private static Player player = new Player();
   private static String name = PlayerState.getName();
-  public static Faction faction = Faction.faction;
-  public static ArrayList<Integer> sector = new ArrayList<Integer>();
-  public static ArrayList<Integer> system = new ArrayList<Integer>();
+  private static Faction faction = Faction.faction;
+  private static boolean hasCreativeMode = PlayerState.hasCreativeMode;
+  private static boolean useCreativeMode = PlayerState.useCreativeMode;
+  private static ArrayList<Integer> sector = new ArrayList<Integer>();
+  private static ArrayList<Integer> system = new ArrayList<Integer>();
 
   private static void sendErrorBox(ErrorBox errorBox) {
     if(server.getPlayer(player) == null) {
@@ -93,5 +95,13 @@ public class Player extends PlayerState {
 
   public static getFaction() {
 	  return faction;
+  }
+  
+  public static hasCreativeMode() {
+	  return hasCreativeMode;
+  }
+  
+  public static isUsingCreativeMode() {
+	  return useCreativeMode;
   }
 }
