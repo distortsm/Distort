@@ -5,7 +5,7 @@ import net.distortsm.api.world.Location;
 public class Entity {
 
   public static Entity entity = new Entity();
-
+  
   public static getBlockAt(Location[] location) {
     Block block;
     int blockx = location.locationCoords[0];
