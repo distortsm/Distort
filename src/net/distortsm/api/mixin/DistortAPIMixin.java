@@ -1,4 +1,4 @@
-package net.distortsm.api;
+package net.distortsm.api.mixin;
 
 import org.schema.game.client.controller.GameClientController;
 import org.schema.schine.network.client.ClientController;
