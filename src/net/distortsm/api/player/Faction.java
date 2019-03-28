@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import org.schema.game.common.data.player.PlayerState;
 
 public class Faction {
+	
 	public static Object getFactionName() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		Method method = PlayerState.class.getClass().getDeclaredMethod("getFactionName");
 		method.setAccessible(true);

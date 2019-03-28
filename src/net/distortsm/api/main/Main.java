@@ -6,10 +6,11 @@ import net.distortsm.api.main.AccessModifier;
 public class Main implements ModInitializer {
 
 public static final String starmadeDirectory = "../";
+public static final String modsFolder = starmadeDirectory + "mods";
+
 
 @Override
   public void onInitialize() {
-    AccessModifier.main();
     System.out.println("Distort API is ready!");
   }
 }
