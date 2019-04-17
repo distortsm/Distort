@@ -1,0 +1,16 @@
+{
+  "id": "distortapi",
+  "name": "Distort API",
+  "description": "A versatile set of tools and libraries for StarMade modders.",
+  "version": "${version}",
+  "side": "universal",
+  "initializers": [
+    "net.distortsm.api.main.Main"
+  ],
+  "requires": {
+  },
+  "mixins": {
+    "client": "distortapi.client.json",
+    "common": "distortapi.common.json"
+  }
+}
