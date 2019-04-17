@@ -6,9 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/StarMade Modding/StarMade.jar"/>
-	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/StarMade Modding/vecmath-1.5.1.jar"/>
-	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/StarMade Modding/sux4j-4.3.0.jar"/>
-	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/StarMade Modding/fastutil-8.2.2.jar"/>
+	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/StarMade Modding/Resources/StarMade.jar"/>
+	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/StarMade Modding/Resources/sux4j-4.3.0.jar"/>
+	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/StarMade Modding/Resources/vecmath-1.5.1.jar"/>
+	<classpathentry kind="lib" path="/Users/garretreichenbach/Desktop/Coding/StarMade Modding/Resources/fastutil-8.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
