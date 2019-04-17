@@ -1,14 +1,11 @@
 package net.distortsm.api.inventory;
 
 import org.schema.game.common.controller.elements.cargo.CargoUnit;
+import java.util.UUID;
 
 public class Inventory extends CargoUnit {
-	
-	public static String inventoryName;
-	public static String inventoryID;
-	
-	public static void newInventory(String name) {
-		
-		generateInventoryID();
-	}
+
+	public UUID inventoryUUID;
+	public String inventoryName;
+	public double cargoSpace;
 }
