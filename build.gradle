@@ -1,74 +1,185 @@
-buildscript {
-	repositories {
-		dependencies {
-			classpath 'net.fabricmc:fabric-loom:0.3.0-SNAPSHOT'
-		}
-	}
-}
+import com.google.gson.Gson
+import com.google.gson.JsonElement
+import com.google.gson.JsonObject
 
 plugins {
-	id 'distort-navigator' version '0.3.0-SNAPSHOT'
+	id 'java'
 	id 'maven-publish'
+
+	id 'eclipse'
+	id('com.github.distortsm.navigator') version "v0.3.1"
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
+archivesBaseName = "fabric-loader"
 
-starmade {
+// Fetch build number from Jenkins
+def ENV = System.getenv()
+version = version + "." + (ENV.BUILD_NUMBER ? ENV.BUILD_NUMBER : "local")
+
+repositories {
+	mavenCentral()
+	jcenter()
+	maven {
+		name = 'Fabric'
+		url = 'http://maven.modmuss50.me/'
+	}
+	maven {
+		name = 'SpongePowered'
+		url = 'http://repo.spongepowered.org/maven'
+	}
+	maven {
+		name = 'mojang'
+		url = 'https://libraries.minecraft.net/'
+	}
+	maven { url 'https://jitpack.io' }
+}
+
+starmade{
 	version = project.starmade_version
-	mappings "net.distortsm:reality:${project.reality_mappings}"
+	mappings "com.github.distortsm:reality:${project.reality_mappings}"
 }
 
 dependencies {
-	//to change the versions see the gradle.properties file
-	modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
+	// Minecraft's JAR uses these annotations
+	compile 'com.google.code.findbugs:jsr305:3.0.2'
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	// modCompile "net.fabricmc:fabric:${project.fabric_version}"
+	// fabric-loader dependencies
+	compile 'org.ow2.asm:asm:7.1'
+	compile 'org.ow2.asm:asm-analysis:7.1'
+	compile 'org.ow2.asm:asm-commons:7.1'
+	compile 'org.ow2.asm:asm-tree:7.1'
+	compile 'org.ow2.asm:asm-util:7.1'
+	compile 'org.apache.logging.log4j:log4j-api:2.8.1'
+	compile 'org.apache.logging.log4j:log4j-core:2.8.1'
+
+	compile('net.fabricmc:sponge-mixin:0.7.11.20') {
+		exclude module: 'launchwrapper'
+		exclude module: 'guava'
+	}
+	compile 'net.fabricmc:tiny-mappings-parser:0.1.1.8'
+	compile 'net.fabricmc:tiny-remapper:0.1.0.33'
+
+	compile 'com.google.jimfs:jimfs:1.1'
+	compile 'net.fabricmc:fabric-loader-sat4j:2.3.5.4'
+
+	// launchwrapper + dependencies
+	compile ('net.minecraft:launchwrapper:1.12') {
+		transitive = false
+	}
+	compile 'net.sf.jopt-simple:jopt-simple:5.0.3'
 }
 
 processResources {
-	inputs.property "version", project.version
+	inputs.property "version", version
 
 	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
-		expand "version": project.version
+		include 'fabric.mod.json'
+		expand 'version':version
 	}
 
 	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
+		exclude 'fabric.mod.json'
 	}
-}
-
-// ensure that the encoding is set to UTF-8, no matter what the system default is
-// this fixes some edge cases with special characters not displaying correctly
-// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
-tasks.withType(JavaCompile) {
-	options.encoding = "UTF-8"
 }
 
 jar {
-	from "LICENSE"
+	manifest {
+		attributes (
+			'Main-Class': 'net.fabricmc.loader.launch.server.FabricServerLauncher'
+		)
+	}
 }
 
-// configure the maven publication
+task copyJson(type: Copy, dependsOn: ["remapJar"]) {
+	from('src/main/resources/fabric-installer.json') {
+		rename { "${archivesBaseName}-${version}.json" }
+	}
+	into 'build/libs'
+}
+
+task copyJsonLw(type: Copy, dependsOn: ["remapJar"]) {
+	from('src/main/resources/fabric-installer.launchwrapper.json') {
+		rename { "${archivesBaseName}-${version}.launchwrapper.json" }
+	}
+	into 'build/libs'
+}
+
+tasks.build.dependsOn "fatJar"
+tasks.build.dependsOn "copyJson"
+tasks.build.dependsOn "copyJsonLw"
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.10.3'
+}
+
+String getClasspathEntries(){
+	String classPath = ""
+	File installerFile = file("src/main/resources/fabric-installer.json")
+	JsonObject object = Gson.newInstance().fromJson(new InputStreamReader(new FileInputStream(installerFile)), JsonObject.class)
+
+	["common", "server"].forEach { l ->
+		for (JsonElement element : object.getAsJsonObject("libraries").getAsJsonArray(l)) {
+			String dep = element.getAsJsonObject().get("name").getAsString()
+			String[] depSplit = dep.split(":")
+			if (depSplit.length != 3) throw new RuntimeException("Invalid dependency " + dep);
+			classPath = classPath + " libs/" + depSplit[1] + "-" + depSplit[2] + ".jar"
+		}
+	}
+
+	return classPath;
+}
+
+task fatJar(type: Jar) {
+    from {
+		configurations.compile.collect {
+			it.isDirectory() ? it : zipTree(it)
+		}
+	}
+	manifest {
+		attributes (
+			'Main-Class': 'net.fabricmc.loader.launch.server.FabricServerLauncher'
+		)
+	}
+	classifier = 'fat'
+	with jar
+}
+
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
+			from components.java
 			// add all the jars that should be included when publishing to maven
-			artifact(jar) {
+
+			artifact fatJar
+
+			artifact(file('src/main/resources/fabric-installer.json')) {
 				builtBy remapJar
+				classifier = ''
+			}
+			artifact(file('src/main/resources/fabric-installer.launchwrapper.json')) {
+				builtBy remapJar
+				classifier = "launchwrapper"
 			}
 		}
 	}
 
 	// select the repositories you want to publish to
 	repositories {
-		// uncomment to publish to the local maven
-		// mavenLocal()
+		if (project.hasProperty('mavenPass')) {
+			maven {
+				url = "http://mavenupload.modmuss50.me/"
+				credentials {
+					username = "buildslave"
+					password = project.getProperty('mavenPass')
+				}
+			}
+		}
 	}
 }
+
+apply from: 'https://github.com/FabricMC/fabric-docs/raw/master/gradle/maven.gradle'
+apply from: 'https://github.com/FabricMC/fabric-docs/raw/master/gradle/license.gradle'
+apply from: 'https://github.com/FabricMC/fabric-docs/raw/master/gradle/ideconfig.gradle'

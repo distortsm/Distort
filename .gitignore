@@ -6,3 +6,4 @@
 .gradle/4.10.2/gc.properties
 .gradle/vcs-1/gc.properties
 .classpath
+/bin/

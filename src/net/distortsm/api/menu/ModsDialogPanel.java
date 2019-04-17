@@ -4,15 +4,15 @@ import org.schema.game.client.controller.GameMainMenuController;
 import org.schema.game.client.view.gui.DialogPanel;
 import net.distortsm.api.main.Main;
 import net.distortsm.api.main.Mod;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
 public class ModsDialogPanel extends DialogPanel {
+	ArrayList<Mod> mods = Main.mods;
     public ModsDialogPanel(GameMainMenuController controller) {
-    	for(Mod mod : Main.mods) {
-    		super("Mods", controller, 600, 800, mod.modName + "-" + mod.modVersion, "by: " + mod.author);
-    	}
-        //super("Mods", controller, 600, 800, "Mod List:", "Spaaaaaccceeeee");
+		super("Mods", controller, 600, 800, mods.modName + "-" + mods.modVersion, "by: " + mods.author);
     }
 
     @Override

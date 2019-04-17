@@ -1,4 +1,4 @@
-package net.distortsm.example.mixin;
+package net.distortsm.api.mixin;
 
 import org.schema.common.GraphicsInterface;
 import org.schema.game.client.controller.GameMainMenuController;
@@ -54,13 +54,13 @@ public abstract class ModListMixin extends GUIAnchor {
 				if (mouseEvent.leftDown()) {
 					showDialog(parent);
 					GameMainMenuController controller = (GameMainMenuController)parent.getState();
-					DialogPanel hello = new ModsDialogPanel(controller);
-					hello.getInputPanel().attachToParent(false);
-					hello.getInputPanel().onInit();
-					hello.getInputPanel().window.setPos(470.0F, 35.0F, 0.0F);
-					hello.getInputPanel().window.setWidth((float)(GLFrame.getWidth() - 435));
-					hello.getInputPanel().window.setHeight((float)(GLFrame.getHeight() - 400));
-					hello.activate();
+					DialogPanel mods = new ModsDialogPanel(controller);
+					mods.getInputPanel().attachToParent(false);
+					mods.getInputPanel().onInit();
+					mods.getInputPanel().window.setPos(470.0F, 35.0F, 0.0F);
+					mods.getInputPanel().window.setWidth((float)(GLFrame.getWidth() - 435));
+					mods.getInputPanel().window.setHeight((float)(GLFrame.getHeight() - 400));
+					mods.activate();
 				}
 			}
 		}, null);
