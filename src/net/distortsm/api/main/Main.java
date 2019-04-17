@@ -1,13 +1,14 @@
 package net.distortsm.api.main;
 
 import net.fabricmc.api.ModInitializer;
-import net.distortsm.api.main.AccessModifier;
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class Main implements ModInitializer {
 
 public static final String starmadeDirectory = "../";
 public static final String modsFolder = starmadeDirectory + "mods";
-
+public static ArrayList<Mod> mods = new ArrayList<Mod>();
 
 @Override
   public void onInitialize() {

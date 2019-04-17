@@ -9,13 +9,13 @@ public class InventoryHandler extends Inventory {
 	public Inventory newInventory(String name) {
 		Inventory inventory = new Inventory();
 		inventory.inventoryName = name;
-		inventory.inventoryUUID = generateInventoryUUID();
+		inventory.inventoryUUID = UUID.randomUUID();
 		inventory.cargoSpace = 100.0;
 		return inventory;
 	}
 	
-	private static UUID generateInventoryUUID() {
-		UUID inventoryUUID = UUID.randomUUID();
-		return inventoryUUID;
+	public Inventory getInventory(UUID inventoryUUID) {
+		
+		return inventory;
 	}
 }
