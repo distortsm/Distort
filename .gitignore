@@ -7,3 +7,4 @@
 .gradle/vcs-1/gc.properties
 .classpath
 /bin/
+.DS_Store
