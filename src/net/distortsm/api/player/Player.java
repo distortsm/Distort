@@ -1,17 +1,14 @@
 package net.distortsm.api.player;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import org.schema.common.util.linAlg.Vector3i;
 import org.schema.game.common.data.player.PlayerState;
-import org.schema.schine.network.StateInterface;
 
-public class Player extends PlayerState {
-	
-	public Player(StateInterface var1) {
-		super(var1);
-	}
+public class Player {
 	
 	public static ArrayList<Integer> getSectorCoords() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
     	Field sectorField = PlayerState.class.getDeclaredField("currentSector");
@@ -26,4 +23,19 @@ public class Player extends PlayerState {
     	sectorCoords.set(2, z);
 		return sectorCoords;
   }
+	public static Object getFactionName() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		Method method = PlayerState.class.getClass().getDeclaredMethod("getFactionName");
+		method.setAccessible(true);
+		Object factionNameObj = method.invoke(getFactionName());
+		String factionName = factionNameObj.toString();
+		return factionName;
+	}
+	
+	public static Object getFactionID() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		Method method = PlayerState.class.getClass().getDeclaredMethod("getFactionId");
+		method.setAccessible(true);
+		Object factionIDObj = method.invoke(getFactionID());
+		String factionID = factionIDObj.toString();
+		return factionID;
+	}
 }
