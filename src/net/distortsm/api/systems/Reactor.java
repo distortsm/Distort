@@ -1,18 +1,10 @@
 package net.distortsm.api.systems;
 
-import java.util.List;
-import java.util.Set;
 import java.lang.reflect.Method; 
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Constructor;
-import org.schema.game.common.controller.elements.power.reactor.MainReactorUnit;
 import org.schema.game.common.controller.elements.power.reactor.PowerConsumer;
 import org.schema.game.common.controller.elements.power.reactor.PowerInterface;
-import org.schema.game.common.controller.elements.power.reactor.StabilizerCollectionManager;
-import org.schema.game.common.controller.elements.power.reactor.chamber.ConduitCollectionManager;
 import org.schema.game.common.controller.elements.power.reactor.chamber.ReactorChamberUnit;
-import org.schema.game.common.controller.elements.power.reactor.tree.ReactorSet;
 import org.schema.game.common.controller.elements.power.reactor.tree.ReactorTree;
 
 public interface Reactor extends PowerInterface {
@@ -121,14 +113,24 @@ public interface Reactor extends PowerInterface {
 		return method.invoke(getReactorSwitchCooldownObject()); 
 	}
 	
-	private static Object getReactorSwitchCooldownObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getReactorSwitchCooldown");
-		method.setAccessible(true); 
-		return method.invoke(getReactorSwitchCooldownObject()); 
-	}
-	
 	//Getters
 	public static double getPowerRechargeRate() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
 		return Double.parseDouble(getRechargeRatePowerPerSecObject().toString());
+	}
+	
+	public static double getPowerRechargeRatePercent() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
+		return Double.parseDouble(getRechargeRatePercentPerSecObject().toString());
+	}
+	
+	public static double getPowerRate() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
+		return Double.parseDouble(getPowerObject().toString());
+	}
+	
+	public static double getMaxPowerRate() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
+		return Double.parseDouble(getMaxPowerObject().toString());
+	}
+	
+	public static double getChamberList() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
+		return Double.parseDouble(getChambersObject().toString());
 	}
 }
