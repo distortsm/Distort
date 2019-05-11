@@ -140,7 +140,7 @@ public class Block {
   }
 
   public static void setSlaves(ArrayList<Integer> blocks) {
-    for(x = 0, x <= blocks.size(), x++) {
+    for(int x = 0; x <= blocks.size(); x++) {
       controlling.add(x);
     }
   }
@@ -188,7 +188,7 @@ public class Block {
 
   public static void setLightSourceColor(ArrayList<Double> colors) {
     if(colors.size == 3) {
-      for(x = 0, x <= ids.size(), x++) {
+      for(int x = 0; x <= ids.size(); x++) {
         lightColors.add(x);
       }
     }
