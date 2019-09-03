@@ -59,10 +59,8 @@ public class Block extends Element {
 	    Block controller = block;
 	  }
 
-	  public static void setSlaves(ArrayList<Integer> blocks) {
-	    for(int x = 0; x <= blocks.size(); x++) {
-	      controlling.add(x);
-	    }
+	  public static void setSlaves(ArrayList<Block> blocks) {
+	    controlling.addAll(blocks);
 	  }
 
 	  public static void setOrientable(boolean bool) {
@@ -103,11 +101,7 @@ public class Block extends Element {
 	  }
 
 	  public static void setLightSourceColor(ArrayList<Double> colors) {
-	    if(colors.size == 3) {
-	      for(int x = 0; x <= ids.size(); x++) {
-	        lightColors.add(x);
-	      }
-	    }
+	    lightColors.addAll(colors);
 	  }
 
 	  public static void setDoor(boolean bool) {
