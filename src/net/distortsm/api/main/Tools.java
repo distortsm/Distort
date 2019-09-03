@@ -1,6 +1,6 @@
 package net.distortsm.api.main;
 
-import net.distortsm.api.block.Block;
+import net.distortsm.api.element.Block;
 import net.distortsm.api.entity.Entity;
 import net.distortsm.api.world.Location;
 
