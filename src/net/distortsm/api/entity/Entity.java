@@ -10,8 +10,6 @@ public class Entity {
 	private static EntityType entityType;
 	private static String entityID;
 	private static ArrayList<ShieldGroup> shieldGroups = new ArrayList<ShieldGroup>();
-	private static ArrayList<ShieldCapacity> shieldsCapacity = new ArrayList<ShieldCapacity>();
-	private static ArrayList<ShieldCapacity> shieldsCapacity = new ArrayList<ShieldCapacity>();
 	
 	public static String getName() {
 		return entityName;
@@ -23,5 +21,11 @@ public class Entity {
 	
 	public static String getEntityID() {
 		return entityID;
+	}
+	
+	public static double getShieldCapacity(ShieldGroup shieldGroup) {
+		double shieldCapacity = shieldGroup.getCapacity();
+		
+		return shieldCapacity;
 	}
 }
