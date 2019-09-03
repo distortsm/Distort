@@ -2,135 +2,21 @@ package net.distortsm.api.systems;
 
 import java.lang.reflect.Method; 
 import java.lang.reflect.InvocationTargetException;
-import org.schema.game.common.controller.elements.power.reactor.PowerConsumer;
-import org.schema.game.common.controller.elements.power.reactor.PowerInterface;
-import org.schema.game.common.controller.elements.power.reactor.chamber.ReactorChamberUnit;
-import org.schema.game.common.controller.elements.power.reactor.tree.ReactorTree;
+import org.schema.game.common.controller.elements.power.reactor.MainReactorUnit;
+import org.schema.game.common.controller.elements.power.reactor.PowerImplementation;
+import net.distortsm.api.entity.Entity;
 
-public interface Reactor extends PowerInterface {
-		
+public class Reactor {
 	
 	//Object Reflectors
-	private static Object getRechargeRatePowerPerSecObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getRechargeRatePowerPerSec");
+	private Object getReactorObject(long var1) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+		Method method = PowerImplementation.class.getDeclaredMethod("getReactor", long.class);
 		method.setAccessible(true); 
-		return method.invoke(getRechargeRatePowerPerSecObject()); 
+		return method.invoke(getReactorObject(var1)); 
 	}
-	
-	private static Object getRechargeRatePercentPerSecObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getRechargeRatePercentPerSec");
-		method.setAccessible(true); 
-		return method.invoke(getRechargeRatePercentPerSecObject()); 
-	}
-	
-	private static Object getPowerObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getPower");
-		method.setAccessible(true); 
-		return method.invoke(getPowerObject()); 
-	}
-	
-	private static Object getMaxPowerObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getMaxPower");
-		method.setAccessible(true); 
-		return method.invoke(getMaxPowerObject()); 
-	}
-	
-	private static Object getChambersObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getChambers");
-		method.setAccessible(true); 
-		return method.invoke(getChambersObject()); 
-	}
-	
-	private static Object getReactorChamberObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getReactorChamber", ReactorChamberUnit.class);
-		method.setAccessible(true); 
-		return method.invoke(getReactorChamberObject()); 
-	}
-	
-	private static Object getConduitsObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getConduits");
-		method.setAccessible(true); 
-		return method.invoke(getConduitsObject()); 
-	}
-	
-	private static Object getConnectedChambersToConduitObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getConnectedChambersToConduit");
-		method.setAccessible(true); 
-		return method.invoke(getConnectedChambersToConduitObject()); 
-	}
-	
-	private static Object getReactorSetObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getReactorSet");
-		method.setAccessible(true); 
-		return method.invoke(getReactorSetObject()); 
-	}
-	
-	private static Object getReactorOptimalDistanceObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getReactorOptimalDistance");
-		method.setAccessible(true); 
-		return method.invoke(getReactorOptimalDistanceObject()); 
-	}
-	
-	private static Object getStabilizerCollectionManagerObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getStabilizerCollectionManager");
-		method.setAccessible(true); 
-		return method.invoke(getStabilizerCollectionManagerObject()); 
-	}
-	
-	private static Object addConsumerObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("addConsumer", PowerConsumer.class);
-		method.setAccessible(true); 
-		return method.invoke(addConsumerObject()); 
-	}
-	
-	private static Object removeConsumerObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("removeConsumer", PowerConsumer.class);
-		method.setAccessible(true); 
-		return method.invoke(removeConsumerObject()); 
-	}
-	
-	private static Object getCurrentConsumptionObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getCurrentConsumption");
-		method.setAccessible(true); 
-		return method.invoke(getCurrentConsumptionObject()); 
-	}
-	
-	private static Object getCurrentConsumptionPerSecObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getCurrentConsumptionPerSec");
-		method.setAccessible(true); 
-		return method.invoke(getCurrentConsumptionPerSecObject()); 
-	}
-	
-	private static Object isActiveReactorObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("isActiveReactor", ReactorTree.class);
-		method.setAccessible(true); 
-		return method.invoke(isActiveReactorObject()); 
-	}
-	
-	private static Object getReactorSwitchCooldownObject() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Method method = PowerInterface.class.getDeclaredMethod("getReactorSwitchCooldown");
-		method.setAccessible(true); 
-		return method.invoke(getReactorSwitchCooldownObject()); 
-	}
-	
+		
 	//Getters
-	public static double getPowerRechargeRate() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
-		return Double.parseDouble(getRechargeRatePowerPerSecObject().toString());
-	}
-	
-	public static double getPowerRechargeRatePercent() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
-		return Double.parseDouble(getRechargeRatePercentPerSecObject().toString());
-	}
-	
-	public static double getPowerRate() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
-		return Double.parseDouble(getPowerObject().toString());
-	}
-	
-	public static double getMaxPowerRate() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
-		return Double.parseDouble(getMaxPowerObject().toString());
-	}
-	
-	public static double getChamberList() throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
-		return Double.parseDouble(getChambersObject().toString());
+	private MainReactorUnit getReactorUnit(long var1) throws NumberFormatException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException{
+		return (MainReactorUnit) getReactorObject(var1);
 	}
 }
