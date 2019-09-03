@@ -1,4 +1,4 @@
-package net.distortsm.api.systems;
+package net.distortsm.api.systems.reactor;
 
 import java.lang.reflect.Method; 
 import java.lang.reflect.InvocationTargetException;
