@@ -3,6 +3,7 @@ package net.distortsm.api.mixin;
 import net.distortsm.api.element.Block;
 import net.distortsm.api.element.Element;
 import net.distortsm.api.element.Item;
+import net.distortsm.api.element.Weapon;
 
 public class Registry {
 	
