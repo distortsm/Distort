@@ -7,6 +7,11 @@ import net.distortsm.api.element.Weapon;
 
 public class Registry {
 	
+	// TODO: Figure out how to use mixins and inject block data into StarMade
+	public static void addElement(Element element) {
+		
+	}
+	
 	public static void addBlock(Block block) {
 		
 	}
@@ -16,10 +21,6 @@ public class Registry {
 	}
 	
 	public static void addWeapon(Weapon weapon) {
-		
-	}
-	
-	public static void addElement(Element element) {
 		
 	}
 }
