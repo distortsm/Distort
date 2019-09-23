@@ -16,6 +16,7 @@ public class Element {
 	private static String description;
 	private static double bakeTime;
 	private static int numberProduced;
+	public static ElementType elementType;
 	
 	//Getters
 	public static String getID() {
@@ -27,7 +28,7 @@ public class Element {
 	
 	public static int getIconID() {
 		/**
-		 * Returns the element's Icon ID as an int.
+		 * Returns the element's Icon ID as an integer.
 		 */
 		return iconID;
 	}
@@ -101,7 +102,6 @@ public class Element {
 		 */
 		return numberProduced;
 	}
-	
 	
 	
 	//Setters
