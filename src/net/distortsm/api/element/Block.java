@@ -30,6 +30,10 @@ public class Block extends Element {
 	private static boolean lightSource;
 	private static ArrayList<Double> lightColors = new ArrayList<Double>();
 	private static boolean door;
+	
+	public Block() {
+		elementType = ElementType.BLOCK;
+	}
 
 	public static void setTextureIDs(ArrayList<Integer> ids) {
 		if(ids.size() == 6) {
