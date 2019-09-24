@@ -4,6 +4,7 @@ import net.distortsm.api.element.Block;
 import net.distortsm.api.element.Element;
 import net.distortsm.api.element.Item;
 import net.distortsm.api.element.Weapon;
+import net.distortsm.api.guis.GUIMenu;
 
 public class Registry {
 	
@@ -21,6 +22,10 @@ public class Registry {
 	}
 	
 	public static void addWeapon(Weapon weapon) {
+		
+	}
+	
+	public static GUIMenu addGUI(GUIMenu gui) {
 		
 	}
 }
