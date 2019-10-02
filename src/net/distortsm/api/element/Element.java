@@ -176,7 +176,7 @@ public class Element {
 		inShop = bool;
 	}
 	
-	public static void setPlaceable(boolean bool) {
+	public void setPlaceable(boolean bool) {
 		/*
 		 * Sets if an element can be placed. For items this should always be false, for blocks this should be true.
 		 */
