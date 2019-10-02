@@ -6,9 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Garret/Documents/Programming/Java/Resources/StarMade-Dev Build.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Garret/Documents/Programming/Java/Resources/vecmath-1.5.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Garret/Documents/Programming/Java/Resources/guava-28.0-jre.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Garret/Documents/Programming/Java/Resources/fastutil-8.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Garret/Documents/Programming/Java/Resources/StarMade-Dev Build New.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
