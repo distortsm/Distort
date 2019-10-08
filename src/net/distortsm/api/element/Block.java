@@ -3,6 +3,7 @@ package net.distortsm.api.element;
 import java.util.List;
 
 public class Block extends Element {
+	
 	public ElementType elementType = ElementType.BLOCK;
 	public int HP;
 	public int armor;
@@ -32,8 +33,4 @@ public class Block extends Element {
 	public boolean lightSource;
 	public List<Double> lightColors;
 	public boolean door;
-	
-	public void register() {
-		
-	}
 }

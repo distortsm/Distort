@@ -2,31 +2,31 @@ package net.distortsm.api.systems.shields;
 
 public class ShieldGroup {
 
-	private static double shieldCapacity;
-	private static double shieldRegen;
-	private static double shieldRadius;
+	private double shieldCapacity;
+	private double shieldRegen;
+	private double shieldRadius;
 	
-	public static double getCapacity() {
+	public double getCapacity() {
 		return shieldCapacity;
 	}
 	
-	public static double getRegen() {
+	public double getRegen() {
 		return shieldRegen;
 	}
 	
-	public static double getRadius() {
+	public double getRadius() {
 		return shieldRadius;
 	}
 	
-	public static void setCapacity(double capacity) {
+	public void setCapacity(double capacity) {
 		shieldCapacity = capacity;
 	}
 	
-	public static void setRegen(double regen) {
+	public void setRegen(double regen) {
 		shieldRegen = regen;
 	}
 	
-	public static void setRadius(double radius) {
+	public void setRadius(double radius) {
 		shieldRadius = radius;
 	}
 

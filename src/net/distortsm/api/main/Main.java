@@ -2,7 +2,6 @@ package net.distortsm.api.main;
 
 import net.fabricmc.api.ModInitializer;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Main implements ModInitializer {
 
