@@ -7,6 +7,11 @@ public class Entity {
 	private String entityName;
 	private EntityType entityType;
 	private String entityID;
-	private Faction faction;
 	private double currentSpeed;
+
+	public Entity(String name, EntityType eType, String ID) {
+		entityName = name;
+		entityType = eType;
+		entityID = ID;
+	}
 }
