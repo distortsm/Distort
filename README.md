@@ -1,5 +1,16 @@
-# Distort StarMade modding API
+# Fabric Example Mod
 
-Distort is a WIP moddingAPI designed to allow for easier modding in a format that is more similar to API's from Minecraft, like Spigot and Forge. Classes and Objects are re organized and re-structured for ease of access.
+## Setup
 
-It is currently stil heavily WIP, if you want to contribute (please do) contact TheDerpGamer#1754 on Discord.
+1. Edit build.gradle and mod.json to suit your needs.
+    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
+    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
+2. Run the following command:
+
+```
+./gradlew idea
+```
+
+## License
+
+This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.

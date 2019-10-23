@@ -5,11 +5,21 @@ pluginManagement {
             name = 'Fabric'
             url = 'https://maven.fabricmc.net/'
         }
+
         maven {
 			name = 'mojang'
 			url = 'https://libraries.minecraft.net/'
 		}
         maven { url 'https://jitpack.io' }
         gradlePluginPortal()
+        maven {
+            name = 'Sonatype'
+            url = 'https://oss.sonatype.org/content/groups/public/'
+        }
+        mavenLocal()
+        maven {
+            name = 'Apache'
+            url = 'https://repository.apache.org/service/local/repositories/releases/content/'
+        }
     }
 }
