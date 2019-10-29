@@ -33,4 +33,8 @@ public class Block extends Element {
 	public boolean lightSource;
 	public List<Double> lightColors;
 	public boolean door;
+
+	public Block(int ID) {
+
+	}
 }

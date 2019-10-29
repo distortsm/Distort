@@ -1,4 +1,4 @@
-package src.main.java.net.distortsm.api.main;
+package net.distortsm.api.main;
 
 import net.fabricmc.api.ModInitializer;
 import java.util.ArrayList;
