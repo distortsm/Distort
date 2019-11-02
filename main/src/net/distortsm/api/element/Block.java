@@ -3,38 +3,34 @@ package net.distortsm.api.element;
 import java.util.List;
 
 public class Block extends Element {
-	
 	public ElementType elementType = ElementType.BLOCK;
-	public int HP;
-	public int armor;
-	public int price;
-	public String description;
-	public int heatValue;
-	public int kineticValue;
-	public int emValue;
-	public double factoryBakeValue;
-	public int numberProduced;
-	public boolean animated;
-	public boolean transparent;
-	public boolean placeable;
-	public Block controller;
-	public List<Integer> textureIDs;
-	public List<Block> controlling;
-	public List<Block> controllers;
-	public boolean orientable;
-	public boolean enterable;
-	public int mass;
-	public int volume;
-	public int hitpoints;
-	public boolean hasAcivationTexture;
-	public boolean activatable;
-	public boolean physical;
-	public boolean buildmode;
-	public boolean lightSource;
-	public List<Double> lightColors;
-	public boolean door;
-
-	public Block(int ID) {
-
-	}
+	public int HP = 0;
+	public double armor = 0;
+	public int price = 0;
+	public String description = "";
+	public double heatValue = 0;
+	public double kineticValue = 0;
+	public double emValue = 0;
+	public double factoryBakeValue = 0;
+	public int numberProduced = 0;
+	public boolean animated = false;
+	public boolean transparent = false;
+	public boolean placeable = true;
+	public Block controller = null;
+	public List<Integer> textureIDs = null;
+	public List<Block> controlling = null;
+	public List<Block> controllers = null;
+	public boolean orientable = false;
+	public boolean enterable = false;
+	public double mass = 0;
+	public double volume = 0;
+	public boolean hasAcivationTexture = false;
+	public boolean activatable = false;
+	public boolean physical = false;
+	public boolean buildmode = false;
+	public boolean lightSource = false;
+	public List<Double> lightColors = null;
+	public boolean door = false;
+	public boolean hasLODModel = false;
+	public Model model = null;
 }
