@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Element {
 	
-	public String ID;
+	public int ID;
 	public int iconID;
 	public Category category;
 	public String displayName;
@@ -14,7 +14,8 @@ public class Element {
 	public boolean inRecipe;
 	public int price;
 	public String description;
-	public double bakeTime;
+	public double bakeTime = 5.0;
 	public int numberProduced;
 	public ElementType elementType;
+
 }
