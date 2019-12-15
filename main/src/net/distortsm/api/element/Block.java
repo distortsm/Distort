@@ -1,5 +1,6 @@
 package net.distortsm.api.element;
 
+import net.distortsm.api.main.BlockRegistry;
 import java.util.List;
 
 public class Block extends Element {
@@ -43,6 +44,10 @@ public class Block extends Element {
     private boolean effectCombination = false;
 
     public Block(int blockID, String blockName) {
+        /**
+         * Block(int blockID, String blockName)
+         * - blockName refers to internal registry name, not display name
+         */
         super(blockID, blockName);
     }
 
@@ -333,5 +338,9 @@ public class Block extends Element {
 
     public void setInventoryGroup(InventoryGroup blockInventoryGroup) {
         this.inventoryGroup = blockInventoryGroup;
+    }
+
+    public void registerBlock() {
+        BlockRegistry.registerBlock(this);
     }
 }
