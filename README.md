@@ -1,16 +1,40 @@
-# Fabric Example Mod
+# Distort Mod Loader
 
 ## Setup
+1 ) Download and install the Github Desktop App.
 
-1. Edit build.gradle and mod.json to suit your needs.
-    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
-    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
-2. Run the following command:
+2 ) Install Gradle on your computer
 
+3 ) Clone the Distort repository (https://github.com/distortsm/Distort)
+to a new folder. This folder will eventually contain the modded StarMade installation, so I recommend changing it from the Github default directory.
+
+4 ) Edit the build.gradle file and change the following lines:
 ```
-./gradlew idea
+   gradle_path=C:\\Users\\<your_name>\\.gradle\\
+   starmade_folder=C:\\<this_folder_path>\\StarMade\\
 ```
 
-## License
+5 ) Navigate to your StarMade installation through command line and run the following command:
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+Windows:
+```
+gradlew build --refresh-dependencies
+```
+
+Mac/Linux:
+```
+./gradlew build -- refresh-dependencies
+```
+
+To start it, run the bat file, or use the following command:
+
+Windows:
+```
+gradlew runStarMade
+```
+
+Max/Linux:
+```
+./gradlew runStarMade
+```
+Note: Eventually this process will probably be done through a modloading gui or integrated into the StarMade launcher at some point.
