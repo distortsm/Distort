@@ -23,7 +23,7 @@ gradlew build --refresh-dependencies
 
 Mac/Linux:
 ```
-./gradlew build -- refresh-dependencies
+./gradlew build --refresh-dependencies
 ```
 
 To start it, run the bat file, or use the following command:
