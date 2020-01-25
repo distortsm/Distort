@@ -6,7 +6,7 @@
 2 ) Install Gradle on your computer
 
 3 ) Clone the Distort repository (https://github.com/distortsm/Distort)
-to a new folder. This folder will eventually contain the modded StarMade installation, so I recommend changing it from the Github default directory.
+to a new folder. This folder will contain your modded StarMade installation, so I recommend changing it from the Github default directory.
 
 4 ) Edit the build.gradle file and change the following lines:
 ```
