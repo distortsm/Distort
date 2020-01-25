@@ -90,6 +90,7 @@ publishing {
 		mavenLocal()
 	}
 }
+
 task runStarMade(type: JavaExec){
 	dependencies {
 		classpath 'C:\\Users\\Garret\\Documents\\Programming\\Java\\Resources\\fabric-loader-0.4.7.jar'
@@ -131,7 +132,7 @@ task runStarMade(type: JavaExec){
 
 	]
 	jvmArgs = [
-			'-Xmn128M', '-Xms512M','-Xmx4096M, -force'
+			'-Xmn128M', '-Xms512M','-Xmx4096M'
 	]
 	main= 'net.fabricmc.loader.launch.knot.KnotClient'
 	group = 'StarMade'
