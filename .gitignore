@@ -24,3 +24,4 @@ bin/
 run/
 *.lock
 logs/
+build/tmp/remapSources/output.jar
