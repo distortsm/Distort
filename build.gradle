@@ -117,7 +117,7 @@ task runStarMade(type: JavaExec){
 		classpath (project.starmade_folder + "lib\\fastutil-6.5.0.jar")
         classpath (project.starmade_folder + "lib\\vecmath.jar")
 
-		classpath (project.gradle_path + "caches\\modules-2\\files-2.1\\com.github.distortsm\\reality\\0.202.81\\reality-0.202.18.jar")
+		classpath (project.gradle_path + "caches\\modules-2\\files-2.1\\com.github.distortsm\\reality\\" + project.starmade_version + "\\reality-" + project.starmade_version + ".jar")
 
 		classpath (project.starmade_folder + 'StarMade.jar')
 	}
