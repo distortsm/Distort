@@ -3,7 +3,6 @@
   "package": "net.distortsm.api.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "DistortAPIMixin"
   ],
   "injectors": {
     "defaultRequire": 1
