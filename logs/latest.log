@@ -1,3 +1,3 @@
-[11:32:04] [main/INFO]: [FabricLoader] Loading 1 mod: fabricloader@0.4.7.local
-[11:32:04] [main/WARN]: Mod `fabricloader` (0.4.7.local) does not respect SemVer - comparison support is limited.
-[11:32:04] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.7.11 Source=file:/C:/Users/Garret/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.7.11.20/7b6d587d2697ab8b4149600cf019490afba17459/sponge-mixin-0.7.11.20.jar Service=Knot/Fabric Env=CLIENT
+[12:22:38] [main/INFO]: [FabricLoader] Loading 1 mod: fabricloader@0.4.7.local
+[12:22:38] [main/WARN]: Mod `fabricloader` (0.4.7.local) does not respect SemVer - comparison support is limited.
+[12:22:38] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.7.11 Source=file:/C:/Users/Garret/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.7.11.20/7b6d587d2697ab8b4149600cf019490afba17459/sponge-mixin-0.7.11.20.jar Service=Knot/Fabric Env=CLIENT
