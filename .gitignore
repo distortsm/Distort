@@ -28,3 +28,6 @@ run/
 .gradle/buildOutputCleanup/buildOutputCleanup.lock
 .mixin.out/audit/mixin_implementation_report.txt
 .mixin.out/audit/mixin_implementation_report.csv
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/buildOutputCleanup/cache.properties
+.gradle/buildOutputCleanup/outputFiles.bin
