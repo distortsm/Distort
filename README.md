@@ -1,22 +1,20 @@
 # Distort Mod Loader
 
 ## Setup
-1 ) Download and install the Github Desktop App.
+1 ) Download and install the Github Desktop App and Gradle onto your computer.
 
-2 ) Install Gradle on your computer
+2 ) Open the StarMade installation you want to mod.
 
 3 ) Clone the Distort repository (https://github.com/distortsm/Distort)
-to a new folder. This folder will contain your modded StarMade installation, so I recommend changing it from the Github default directory.
+to a folder that is ONE DIRECTORY LEVEL ABOVE the directory where the StarMade.jar file is.
 
-4) Make a new folder in this directory called "StarMade"
-
-5 ) Edit the gradle.properties file and change the following lines:
+4 ) Edit the gradle.properties file and change the following lines:
 ```
    gradle_path=C:\\Users\\<your_name>\\.gradle\\
    starmade_folder=C:\\<this_folder_path>\\StarMade\\
 ```
 
-6 ) Navigate to your StarMade installation through command line and run the following command:
+5 ) Navigate to the current directory through command line and run the following command:
 
 Windows:
 ```
